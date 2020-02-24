@@ -7,9 +7,9 @@ render_mode unshaded; // No lighting/shading
 uniform vec4 colour_one : hint_color;
 uniform vec4 colour_two : hint_color;
 uniform vec4 colour_three : hint_color;
-uniform vec2 colour_one_pos = vec2(0.333, 0.333);
-uniform vec2 colour_two_pos = vec2(0.666, 0.333);
-uniform vec2 colour_three_pos = vec2(0.5, 0.5);
+uniform vec2 colour_one_pos = vec2(0.333, 0.4);
+uniform vec2 colour_two_pos = vec2(0.666, 0.4);
+uniform vec2 colour_three_pos = vec2(0.5, 0.6);
 
 uniform float circle_radius = 0.3;
 
