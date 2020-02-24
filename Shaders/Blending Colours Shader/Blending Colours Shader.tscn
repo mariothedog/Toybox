@@ -15,8 +15,7 @@ void fragment(){
 	COLOR.a = 0.0;
 	
 	if (distance(colour_one_pos, UV) <= circle_radius && distance(vec2(0.666, 0.5), UV) <= circle_radius){
-		COLOR = (colour_one + colour_two) * 0.5;
-		COLOR.rgb *= 2.0;
+		COLOR = (colour_one + colour_two);
 	}
 	else{
 		if (distance(colour_one_pos, UV) <= circle_radius){
@@ -30,8 +29,8 @@ void fragment(){
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/colour_one = Color( 1, 0, 0, 1 )
-shader_param/colour_two = Color( 0, 0, 1, 1 )
+shader_param/colour_one = Color( 0, 0, 1, 1 )
+shader_param/colour_two = Color( 1, 0, 0, 1 )
 shader_param/colour_one_pos = Vector2( 0.333, 0.5 )
 shader_param/colour_two_pos = Vector2( 0.666, 0.5 )
 shader_param/circle_radius = 0.3
