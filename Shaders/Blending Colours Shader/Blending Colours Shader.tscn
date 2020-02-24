@@ -15,7 +15,7 @@ void fragment(){
 	COLOR.a = 0.0;
 	
 	if (distance(colour_one_pos, UV) <= circle_radius && distance(vec2(0.666, 0.5), UV) <= circle_radius){
-		COLOR = (colour_one + colour_two);
+		COLOR = colour_one + colour_two;
 	}
 	else{
 		if (distance(colour_one_pos, UV) <= circle_radius){
