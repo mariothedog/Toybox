@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+render_mode unshaded; // No lighting/shading
+
+uniform vec4 colour_one : hint_color;
+uniform vec4 colour_two : hint_color;
+uniform vec2 colour_one_pos = vec2(0.333, 0.5);
+uniform vec2 colour_two_pos = vec2(0.666, 0.5);
+
+uniform float circle_radius = 0.3;
+
+void fragment(){
+	COLOR.a = 0.0;
+	
+	if (distance(colour_one_pos, UV) <= circle_radius && distance(vec2(0.666, 0.5), UV) <= circle_radius){
+		COLOR = (colour_one + colour_two) * 0.5;
+		COLOR.rgb *= 2.0;
+	}
+	else{
+		if (distance(colour_one_pos, UV) <= circle_radius){
+			COLOR = colour_one;
+		}
+		if (distance(colour_two_pos, UV) <= circle_radius){
+			COLOR = colour_two;
+		}
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/colour_one = Color( 1, 0, 0, 1 )
+shader_param/colour_two = Color( 0, 0, 1, 1 )
+shader_param/colour_one_pos = Vector2( 0.333, 0.5 )
+shader_param/colour_two_pos = Vector2( 0.666, 0.5 )
+shader_param/circle_radius = 0.3
+
+[node name="Blending Colours Shader" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 2 )
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
