@@ -2,7 +2,7 @@
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
-render_mode unshaded; // No lighting/shading
+render_mode blend_add;
 
 uniform vec4 colour_one : hint_color;
 uniform vec4 colour_two : hint_color;
@@ -14,34 +14,21 @@ uniform vec2 colour_three_pos = vec2(0.5, 0.6);
 uniform float circle_radius = 0.3;
 
 void fragment(){
-	COLOR.a = 0.0;
+	//COLOR.a = 0.0;
+	COLOR = vec4(0, 0, 0, 1);
 	
 	bool in_colour_one = distance(colour_one_pos, UV) <= circle_radius;
 	bool in_colour_two = distance(colour_two_pos, UV) <= circle_radius;
 	bool in_colour_three = distance(colour_three_pos, UV) <= circle_radius;
 	
-	if (in_colour_one && in_colour_two && in_colour_three){
-		COLOR = colour_one + colour_two + colour_three;
+	if (in_colour_one) {
+    	COLOR.rgb += colour_one.rgb;
 	}
-	else if (in_colour_one && in_colour_two){
-		COLOR = colour_one + colour_two;
+	if (in_colour_two) {
+	    COLOR.rgb += colour_two.rgb;
 	}
-	else if (in_colour_one && in_colour_three){
-		COLOR = colour_one + colour_three;
-	}
-	else if(in_colour_two && in_colour_three){
-		COLOR = colour_two + colour_three;
-	}
-	else{
-		if (in_colour_one){
-			COLOR = colour_one;
-		}
-		if (in_colour_two){
-			COLOR = colour_two;
-		}
-		if (in_colour_three){
-			COLOR = colour_three;
-		}
+	if (in_colour_three) {
+	    COLOR.rgb += colour_three.rgb;
 	}
 }"
 
@@ -55,7 +42,7 @@ shader_param/colour_two_pos = Vector2( 0.666, 0.4 )
 shader_param/colour_three_pos = Vector2( 0.5, 0.6 )
 shader_param/circle_radius = 0.3
 
-[node name="Blending Colours Shader" type="Node2D"]
+[node name="Blending Colours" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource( 2 )
