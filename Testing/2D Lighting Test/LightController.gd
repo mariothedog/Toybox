@@ -1,6 +1,6 @@
 extends Light2D
 
-func _input(event):
+func _input(_event):
 	if Input.is_key_pressed(KEY_RIGHT):
 		position.x += 2
 	if Input.is_key_pressed(KEY_LEFT):
