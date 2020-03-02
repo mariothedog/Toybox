@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/White Square.png-cc8f7f64f71b1db3a2a8e40236e7e604.stex"
+path="res://.import/White Square.png-df8d48214a74ef209da12a0d4457e729.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Testing/White Square.png"
-dest_files=[ "res://.import/White Square.png-cc8f7f64f71b1db3a2a8e40236e7e604.stex" ]
+source_file="res://Testing/WorldEnvironment Glow Test/White Square.png"
+dest_files=[ "res://.import/White Square.png-df8d48214a74ef209da12a0d4457e729.stex" ]
 
 [params]
 

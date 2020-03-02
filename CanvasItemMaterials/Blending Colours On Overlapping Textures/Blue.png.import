@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Red Square.png-82c2de5ed839e668f437cd3374c4d183.stex"
+path="res://.import/Blue.png-b7976dfda332ad81c3fdff12f26aa9be.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Testing/Red Square.png"
-dest_files=[ "res://.import/Red Square.png-82c2de5ed839e668f437cd3374c4d183.stex" ]
+source_file="res://CanvasItemMaterials/Blending Colours On Overlapping Textures/Blue.png"
+dest_files=[ "res://.import/Blue.png-b7976dfda332ad81c3fdff12f26aa9be.stex" ]
 
 [params]
 

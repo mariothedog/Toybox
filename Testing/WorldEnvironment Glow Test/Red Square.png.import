@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Blue.png-56c2f2a75be1413c3b7526541cfcfa34.stex"
+path="res://.import/Red Square.png-9d17e893fe609ba935a4ea4149c140f3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CanvasItemMaterials/Blue.png"
-dest_files=[ "res://.import/Blue.png-56c2f2a75be1413c3b7526541cfcfa34.stex" ]
+source_file="res://Testing/WorldEnvironment Glow Test/Red Square.png"
+dest_files=[ "res://.import/Red Square.png-9d17e893fe609ba935a4ea4149c140f3.stex" ]
 
 [params]
 

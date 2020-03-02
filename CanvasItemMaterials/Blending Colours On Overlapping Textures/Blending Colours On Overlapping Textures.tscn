@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://CanvasItemMaterials/Blue.png" type="Texture" id=1]
-[ext_resource path="res://CanvasItemMaterials/Red.png" type="Texture" id=2]
-[ext_resource path="res://CanvasItemMaterials/Green.png" type="Texture" id=3]
+[ext_resource path="res://CanvasItemMaterials/Blending Colours On Overlapping Textures/Blue.png" type="Texture" id=1]
+[ext_resource path="res://CanvasItemMaterials/Blending Colours On Overlapping Textures/Red.png" type="Texture" id=2]
+[ext_resource path="res://CanvasItemMaterials/Blending Colours On Overlapping Textures/Green.png" type="Texture" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 
 [sub_resource type="CanvasItemMaterial" id=1]

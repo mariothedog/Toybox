@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Green.png-0827c8f0644c07e7c8f42f354b793d43.stex"
+path="res://.import/Red.png-7762bcb235e99f5ecdf5e6e1fb1f2a8f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CanvasItemMaterials/Green.png"
-dest_files=[ "res://.import/Green.png-0827c8f0644c07e7c8f42f354b793d43.stex" ]
+source_file="res://CanvasItemMaterials/Blending Colours On Overlapping Textures/Red.png"
+dest_files=[ "res://.import/Red.png-7762bcb235e99f5ecdf5e6e1fb1f2a8f.stex" ]
 
 [params]
 
