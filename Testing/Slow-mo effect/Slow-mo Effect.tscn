@@ -9,6 +9,16 @@ extents = Vector2( 32, 32 )
 
 [node name="Slow-mo Effect" type="Node2D"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -1808.0
+margin_top = -1167.0
+margin_right = 1605.0
+margin_bottom = 1252.0
+color = Color( 0.113725, 0.74902, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Player" type="KinematicBody2D" parent="."]
 script = ExtResource( 3 )
 
