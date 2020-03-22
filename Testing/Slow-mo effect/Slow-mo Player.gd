@@ -19,6 +19,7 @@ func _process(_delta):
 		var time_scale = circ_ease_in(current_time, start_value, END_VALUE, duration_ms)
 		if current_time >= duration_ms:
 			slow_mo_fade_out = false
+			slow_mo_enabled = false
 			time_scale = END_VALUE
 		Engine.time_scale = time_scale
 
@@ -30,15 +31,14 @@ func get_additional_input():
 			stop_slow_mo(0.2)
 
 func start_slow_mo(start_strength = 0.9):
+	time_start = OS.get_ticks_msec()
 	start_value = 1 - start_strength
 	Engine.time_scale = start_value
 	slow_mo_enabled = true
 
 func stop_slow_mo(duration = 0.4):
 	# The duration refers to how long the fade lasts.
-	time_start = OS.get_ticks_msec()
 	duration_ms = duration * 1000
-	slow_mo_enabled = false
 	slow_mo_fade_out = true
 
 # t: current time
