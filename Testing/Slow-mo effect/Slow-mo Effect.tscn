@@ -1,0 +1,3 @@
+[gd_scene format=2]
+
+[node name="Slow-mo Effect" type="Node2D"]
