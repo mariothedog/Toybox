@@ -20,7 +20,6 @@ func _process(_delta):
 		if current_time >= duration_ms:
 			slow_mo_fade_out = false
 			time_scale = END_VALUE
-			print(" ")
 		Engine.time_scale = time_scale
 
 func get_additional_input():
