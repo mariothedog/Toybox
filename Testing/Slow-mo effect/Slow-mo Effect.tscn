@@ -6,6 +6,9 @@
 [node name="Slow-mo Effect" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+_SPEED = 500
+_JUMP_SPEED = 800
+_GRAVITY = 1000
 
 [node name="Ground" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, 251 )
