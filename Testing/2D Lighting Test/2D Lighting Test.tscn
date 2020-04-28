@@ -19,13 +19,13 @@ texture = ExtResource( 1 )
 occluder = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
-visible = false
 position = Vector2( 308.64, 92.2885 )
 texture = ExtResource( 2 )
 shadow_enabled = true
 script = ExtResource( 3 )
 
 [node name="Light2D2" type="Light2D" parent="."]
+visible = false
 position = Vector2( 198.339, 153.988 )
 scale = Vector2( 2.9035, 2.9035 )
 texture = ExtResource( 4 )

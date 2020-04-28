@@ -1,29 +1,71 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Generic/Ground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Testing/Slow-mo effect/Slow-mo Player.gd" type="Script" id=3]
+[ext_resource path="res://Testing/Slow-mo effect/Chromatic Aberration Texture.png" type="Texture" id=4]
+[ext_resource path="res://Testing/Slow-mo effect/White.png" type="Texture" id=5]
+[ext_resource path="res://Testing/Slow-mo effect/Slow-mo Effect.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform bool apply = true;
+
+// Chromatic Aberration: https://youtu.be/-PJOHAsBcoI
+uniform float amount = 1.0;
+uniform sampler2D offset_texture : hint_white;
+
+// Blur
+uniform float blur_amount = 0.5;
+
+void fragment() {
+	vec4 color = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0);
+	if (apply) {
+		color = textureLod(SCREEN_TEXTURE, SCREEN_UV, blur_amount);
+		
+		// Chromatic Aberration
+		float adjusted_amount = amount * texture(offset_texture, UV).r / 100.0;
+		color.r = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x + adjusted_amount, SCREEN_UV.y)).r;
+		color.b = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x - adjusted_amount, SCREEN_UV.y)).b;
+	}
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/apply = false
+shader_param/amount = 5.0
+shader_param/blur_amount = 0.5
+shader_param/offset_texture = ExtResource( 4 )
+
 [node name="Slow-mo Effect" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -1808.0
-margin_top = -1167.0
-margin_right = 1605.0
-margin_bottom = 1252.0
+margin_left = -512.0
+margin_top = -304.0
+margin_right = 512.0
+margin_bottom = 304.0
 color = Color( 0.113725, 0.74902, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Player" type="KinematicBody2D" parent="."]
+z_index = 1
 script = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
+limit_left = -512
+limit_top = -304
+limit_right = 512
+limit_bottom = 304
+limit_smoothed = true
 
 [node name="Sprite" type="Sprite" parent="Player"]
 texture = ExtResource( 1 )
@@ -33,3 +75,17 @@ shape = SubResource( 1 )
 
 [node name="Ground" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, 251 )
+
+[node name="Effect" type="TextureRect" parent="."]
+material = SubResource( 3 )
+margin_left = -512.0
+margin_top = -304.0
+margin_right = 512.0
+margin_bottom = 312.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="slow_mo_disabled" from="Player" to="." method="_on_Player_slow_mo_disabled"]
+[connection signal="slow_mo_enabled" from="Player" to="." method="_on_Player_slow_mo_enabled"]
